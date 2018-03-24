@@ -24,7 +24,7 @@ app.use((req, res, next) => {
     next();
 });
 
-app.use((req, res, next) => {
+app.use('/maintain',(req, res, next) => {
     res.render('maintenance.hbs');
     next();
 });
@@ -49,6 +49,13 @@ app.get('/about',(req,res)=>{
         pageTitle: 'About page',
     });
 });
+
+app.get('/projects',(req,res)=>{
+    res.render('projects.hbs',{
+        pageTitle: 'Projects page'
+    })
+});
+
 app.get('/bad',(req,res)=>{
     res.send({
         errorMessage: 'Unable to handle request'
